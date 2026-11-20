@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SHOPScript — подготовка сценария</title><link rel="icon" href="data:,"><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header><a href="#" class="brand">SHOPScript <span>AI</span></a><span class="badge">Выпускной проект · первая версия</span></header>
+<main>
+<section class="intro"><p class="eyebrow">Помощник для товарных видео</p><h1>От описания товара<br>к трём идеям для видео</h1><p>Расскажите о товаре и своём опыте. Сравните три разных подхода и разверните понравившийся в план съёмки.</p><div class="notice" id="service-status" role="status">Проверяем доступ к помощнику…</div></section>
+<div class="workspace">
+<section class="card"><h2>1. Расскажите о товаре</h2><form id="brief">
+<button type="button" class="secondary" id="load-brief">Загрузить задание</button><input type="file" id="brief-file" accept=".json,application/json" hidden><p class="hint">Выберите ранее скачанное задание. Поля заполнятся; генерация начнётся только после вашего нажатия.</p>
+<label for="product">Название товара</label><input id="product" name="product" required maxlength="200" placeholder="Например, органайзер для кабелей">
+<label for="facts">Подтверждённые сведения</label><textarea id="facts" name="facts" required maxlength="12000" rows="6" placeholder="Материал, размеры, назначение и особенности. Укажите, чего пока не знаете."></textarea>
+<label for="audience">Для кого ролик</label><input id="audience" name="audience" required maxlength="500" placeholder="Кому может быть полезен товар">
+<label for="goal">Что должен сделать зритель</label><input id="goal" name="goal" required maxlength="500" placeholder="Например, открыть карточку товара">
+<label for="link_status">Ссылка при публикации</label><select id="link_status" name="link_status"><option>Пока не определено</option><option>Прикреплю ссылку на этот товар</option><option>Без ссылки</option></select><p class="hint">Выберите план размещения. Это не означает, что ролик или ссылка уже опубликованы.</p>
+<label for="experience">Мой опыт с товаром</label><textarea id="experience" name="experience" rows="3" maxlength="4000" placeholder="Пользовались ли вы им? Что понравилось и что нет? Если опыта нет, так и напишите."></textarea>
+<label for="platform">Площадка</label><select id="platform" name="platform"><option>VK Шопсы</option><option>Другая площадка</option></select>
+<label for="filming">Что можете снять</label><input id="filming" name="filming" maxlength="700" placeholder="Например: рассказ в кадре с товаром в руках. Укажите, что снимать не хотите.">
+<label for="duration">Длительность выбранного ролика</label><select id="duration" name="duration"><option>20–25 секунд</option><option>30–40 секунд</option></select><p class="hint">Три захода по схеме «Хук → Боль → Решение → Где купить»: сразу в проблему, с юмором и через интригу с быстрым раскрытием.</p>
+<p class="hint">Если сведения неполные или противоречивые, помощник должен сначала задать вопросы. Ссылка без описания не заменяет сведения о товаре.</p>
+<p class="hint">После нажатия задание отправляется в облачную модель через вашу Ollama и расходует её лимит. Три идеи требуют 4–6 обращений к модели. Полный план выбранной идеи — ещё 3–5. Подготовка может занять несколько минут.</p><button type="submit" id="generate">Предложить три подхода</button><button type="button" class="secondary" id="save-brief">Скачать задание</button><p id="brief-status" role="status"></p>
+</form></section>
+<section class="card result"><div class="result-head"><h2>2. Три подхода</h2><span class="badge" id="result-label">Ожидаем задание</span></div><p class="hint">Сначала прочитайте три текста целиком: хук, боль, решение и переход к товару. Кнопка у выбранного подхода создаст подробный план отдельным запросом. Ниже также доступен прежний одиночный пример VitaMeal.</p><button class="secondary" id="open-example">Открыть сохранённый пример</button><div id="result" hidden></div><div id="exports" hidden><button class="secondary" id="copy">Копировать варианты</button><button class="secondary" id="download">Скачать JSON</button></div><p id="result-status" role="status"></p></section>
+</div>
+<footer>Сценарий нужно проверить перед съёмкой. Учёт 10 пробных сценариев и подписка пока не подключены.</footer>
+</main><script src="app.js"></script></body></html>

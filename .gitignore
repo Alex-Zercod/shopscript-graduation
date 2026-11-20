@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+local-settings.json
+runtime/
+server-output.log
+server-error.log
+release/
+PROGRESS.md
+docs/*
+!docs/USER-GUIDE.md
+!docs/RELEASE-GUIDE.md
